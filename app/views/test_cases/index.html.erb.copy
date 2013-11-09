@@ -1,0 +1,31 @@
+<h1>Listing test_cases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Input</th>
+      <th>Expected output</th>
+      <th>Problem</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @test_cases.each do |test_case| %>
+      <tr>
+        <td><%= test_case.input %></td>
+        <td><%= test_case.expected_output %></td>
+        <td><%= test_case.problem %></td>
+        <td><%= link_to 'Show', challenge_problem_test_case_path(test_case.problem.challenge, test_case.problem, test_case) %></td>
+        <td><%= link_to 'Edit', edit_challenge_problem_test_case_path(test_case.problem.challenge, test_case.problem, test_case) %></td>
+        <td><%= link_to 'Destroy', test_case, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test case', new_challenge_problem_test_case_path %>

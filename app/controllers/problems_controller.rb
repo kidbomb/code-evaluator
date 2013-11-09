@@ -11,14 +11,12 @@ class ProblemsController < ApplicationController
   # GET /problems/1
   # GET /problems/1.json
   def show
-    challenge = Challenge.find(params[:challenge_id])
-    @problem = challenge.problems.find(params[:id])
+    @problem = Problem.find(params[:id])
   end
 
   # GET /problems/new
   def new
-    challenge = Challenge.find(params[:challenge_id])
-    @problem = challenge.problems.build
+    @problem = Problem.new
   end
 
   # GET /problems/1/edit

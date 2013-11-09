@@ -16,9 +16,9 @@
       <tr>
         <td><%= problem.name %></td>
         <td><%= problem.description %></td>
-        <td><%= link_to 'Show', challenge_problem_path(problem.challenge, problem) %></td>
-        <td><%= link_to 'Edit', edit_challenge_problem_path(problem.challenge, problem) %></td>
-        <td><%= link_to 'Destroy', challenge_problem_path(problem.challenge, problem), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', problem_path(problem) %></td>
+        <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
+        <td><%= link_to 'Destroy', problem_path(problem.challenge, problem), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

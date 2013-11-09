@@ -1,0 +1,25 @@
+<h1>Listing test_cases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Input</th>
+      <th>Expected output</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @test_cases.each do |test_case| %>
+      <tr>
+        <td><%= test_case.input %></td>
+        <td><%= test_case.expected_output %></td>
+        <td><%= link_to 'Edit', edit_test_case_path(test_case) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test case', new_problem_test_case_path %>

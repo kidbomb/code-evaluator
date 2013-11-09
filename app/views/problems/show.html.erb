@@ -10,6 +10,6 @@
   <%= @problem.description %>
 </p>
 
-
-<%= link_to 'Edit', edit_challenge_problem_path(@problem.challenge, @problem) %> |
-<%= link_to 'Back', challenge_problems_path(@problem.challenge) %>
+<%= link_to 'New Test Case', new_problem_test_case_path(@problem) %> |
+<%= link_to 'Edit', edit_problem_path(@problem) %> |
+<%= link_to 'Back', challenge_problems_path(@problem) %>
