@@ -4,8 +4,8 @@ class TestCasesController < ApplicationController
   # GET /test_cases
   # GET /test_cases.json
   def index
-    problem = Problem.find(params[:problem_id])
-    @test_cases = problem.test_cases.all
+    @problem = Problem.find(params[:problem_id])
+    @test_cases = @problem.test_cases.all
   end
 
   # GET /test_cases/1

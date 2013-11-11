@@ -4,8 +4,8 @@ class ProblemsController < ApplicationController
   # GET /problems
   # GET /problems.json
   def index
-    challenge = Challenge.find(params[:challenge_id])
-    @problems = challenge.problems
+    @challenge = Challenge.find(params[:challenge_id])
+    @problems = @challenge.problems
   end
 
   # GET /problems/1
@@ -16,7 +16,8 @@ class ProblemsController < ApplicationController
 
   # GET /problems/new
   def new
-    @problem = Problem.new
+    challenge = Challenge.find(params[:challenge_id])
+    @problem = challenge.problems.build
   end
 
   # GET /problems/1/edit
@@ -72,6 +73,6 @@ class ProblemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def problem_params
-	params.require(:problem).permit(:name, :description, :challenge_id)
+	params.require(:problem).permit(:name, :short_description, :long_description, :challenge_id)
     end
 end

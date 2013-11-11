@@ -1,15 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div style="background-color: #EEEEEE">
   <strong>Name:</strong>
   <%= @problem.name %>
-</p>
+</div>
 
-<p>
+<div style="background-color: #EEEEEE">
   <strong>Description:</strong>
-  <%= @problem.description %>
-</p>
+  <%= simple_format(@problem.long_description) %>
+</div>
 
 <%= link_to 'New Test Case', new_problem_test_case_path(@problem) %> |
+<%= link_to 'Send submission', new_problem_submission_path(@problem) %> |
+<%= link_to 'Show submissions', problem_submissions_path(@problem) %> |
 <%= link_to 'Edit', edit_problem_path(@problem) %> |
 <%= link_to 'Back', challenge_problems_path(@problem) %>

@@ -4,6 +4,12 @@
   <strong>Name:</strong>
   <%= @challenge.name %>
 </p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @challenge.description %>
+</p>
+
 <%= link_to 'Problems', challenge_problems_path(@challenge) %> |
 <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
 <%= link_to 'Back', challenges_path %>

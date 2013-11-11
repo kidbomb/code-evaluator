@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @submission.code %>
+</p>
+
+<p><b>Test case results</b></p>
+<% @submission.test_case_results.each do |test_case_result| %>
+Test case <%= test_case_result.test_case_id %> <%= format_status(test_case_result.status) %><br>
+
+<% end %>
+<%= link_to 'Edit', edit_submission_path(@submission) %> |
+<%= link_to 'Back', problem_submissions_path(@submission) %>

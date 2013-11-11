@@ -1,6 +1,15 @@
 CodeEvalSc::Application.routes.draw do
-  resources :challenges do
-   resources :problems
+
+
+  resources :languages
+  
+  resources :challenges, shallow: true do
+    resources :problems, shallow: true do
+      resources :submissions, shallow: true do
+        resources :test_case_results
+      end
+      resources :test_cases
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
