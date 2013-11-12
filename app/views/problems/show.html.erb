@@ -7,7 +7,7 @@
 
 <div style="background-color: #EEEEEE">
   <strong>Description:</strong>
-  <%= simple_format(@problem.long_description) %>
+  <%= markdown(@problem.long_description) %>
 </div>
 
 <%= link_to 'New Test Case', new_problem_test_case_path(@problem) %> |

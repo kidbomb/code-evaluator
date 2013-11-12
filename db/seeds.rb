@@ -6,4 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Language.create(name: 'C')
+Language.create(name: 'C', build_command: 'gcc -o')
+Language.create(name: 'Javascript', execute_command: 'nodejs ')
+

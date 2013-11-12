@@ -34,6 +34,8 @@ end
 
 gem 'sidekiq'
 
+gem 'redcarpet'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

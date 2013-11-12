@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20131110053706) do
 
   create_table "languages", force: true do |t|
     t.string   "name"
+    t.string   "build_command"
+    t.string   "execute_command"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
