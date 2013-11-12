@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CodeEvalSc</title>
+  <title>Code Evaluator</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <nav>
+        <ul class="nav pull-right">
+          <li><%= link_to "Home", challenges_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<p></p>
+<p>&npsp;</p>
+<p>&nbsp;</p>
+<p></p>
+<div class ="container">
 <%= yield %>
-
+</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<%= form_for([@problem.challenge, @problem]) do |f| %>
+<%= form_for([@problem]) do |f| %>
   <% if @problem.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@problem.errors.count, "error") %> prohibited this problem from being saved:</h2>
@@ -25,6 +25,6 @@
     <%= f.text_area :long_description, :size=>"100x25" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update problem", :class=>"btn btn-default" %>
   </div>
 <% end %>

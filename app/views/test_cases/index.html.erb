@@ -1,23 +1,19 @@
-<h1>Listing test cases</h1>
+<h1>Test cases for <%= @problem.name %></h1>
 
-<table>
-  <thead>
+<table class="table">
     <tr>
       <th>Input</th>
       <th>Expected output</th>
       <th>Edit</th>
     </tr>
-  </thead>
 
-  <tbody>
     <% @test_cases.each do |test_case| %>
       <tr>
         <td><%= test_case.input %></td>
         <td><%= test_case.expected_output %></td>
-        <td><%= link_to 'Edit', edit_test_case_path(test_case) %></td>
+        <td><%= button_to 'Edit', edit_test_case_path(test_case), :method=>"get" %></td>
       </tr>
     <% end %>
-  </tbody>
 </table>
 
 <br>

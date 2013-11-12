@@ -1,15 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @challenge.name %>
-</p>
+<h3><%= @challenge.name %></h3>
 
-<p>
-  <strong>Description:</strong>
+<div>
   <%= @challenge.description %>
-</p>
+</div>
 
-<%= link_to 'Problems', challenge_problems_path(@challenge) %> |
-<%= link_to 'Edit', edit_challenge_path(@challenge) %> |
-<%= link_to 'Back', challenges_path %>
+<p>&nbsp;</p>
+
+<h4>Problems</h4>
+
+<table class="table">
+
+  <tr>
+    <td>Name</td>
+    <td>Description</td>
+    <td>Show</td>
+  </tr>
+
+  <% @challenge.problems.each do |problem| %>
+  <tr>
+    <td><%= problem.name %></td>
+    <td><%= problem.short_description %></td>
+    <td><%= button_to 'Show', problem_path(problem), :method=>"get", :class=>"btn btn-default" %></td>
+  </tr>
+  <% end %>
+  
+</table>
+
+<%= button_to 'New problem', new_challenge_problem_path(@challenge), :method=>"get", :class=>"btn btn-default"  %> 
+<%= button_to 'Edit', edit_challenge_path(@challenge), :method=>"get", :class=>"btn btn-default"  %> 
+<%= button_to 'Back', challenges_path, :method=>"get", :class=>"btn btn-default"  %>

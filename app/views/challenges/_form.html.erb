@@ -11,17 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit 'Create challenge', :class => "btn btn-default" %>
 <% end %>

@@ -10,6 +10,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1
   # GET /submissions/1.json
   def show
+    @problem = Problem.find(@submission.problem_id)
   end
 
   # GET /submissions/new
@@ -32,7 +33,7 @@ class SubmissionsController < ApplicationController
     respond_to do |format|
       if @submission.save
         EvaluatorWorker.perform_async(@submission.id)
-        format.html { redirect_to @submission, notice: 'Problem try was successfully created.' }
+        format.html { redirect_to @submission, notice: 'Problem solution try was successfully created.' }
         format.json { render action: 'show', status: :created, location: @submission }
       else
         format.html { render action: 'new' }
@@ -41,12 +42,13 @@ class SubmissionsController < ApplicationController
     end
   end
 
+  #TODO: remove submission edit
   # PATCH/PUT /submissions/1
   # PATCH/PUT /submissions/1.json
   def update
     respond_to do |format|
       if @submission.update(submission_params)
-        format.html { redirect_to @submission, notice: 'Problem try was successfully updated.' }
+        format.html { redirect_to @submission, notice: 'Problem solution was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

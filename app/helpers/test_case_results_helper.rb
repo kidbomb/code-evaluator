@@ -6,6 +6,14 @@ module TestCaseResultsHelper
       return "failed"
     end
   end
+
+  def format_status_bootstrap(status)
+    if status == TestCaseResultStatus::PASSED
+      return "success"
+    else
+      return "danger"
+    end
+  end
   def format_failed_reason(status)
     if status ==  TestCaseResultStatus::FAILED_UNEXPECTED_OUTPUT
       return "the output was not the expected"

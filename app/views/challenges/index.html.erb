@@ -1,29 +1,19 @@
-<h1>Available challenges</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<h2>Available challenges</h2>
+<table class="table">
+     <tr>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Show</td>
+      </tr>
     <% @challenges.each do |challenge| %>
-      <tr style="background-color: #DDDDDD">
+     <tr>
         <td><%= challenge.name %></td>
         <td><%= challenge.description %></td>
-        <td><%= link_to 'Show', challenge %></td>
-        <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
-        <td><%= link_to 'Destroy', challenge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Show', challenge, :method=>"get", :class=>"btn btn-default" %></td>
       </tr>
     <% end %>
-  </tbody>
+  </div>
+  
 </table>
 
-<br>
-
-<%= link_to 'New Challenge', new_challenge_path %>
+<%= button_to 'New Challenge', new_challenge_path, :method=>"get",:class=>"btn btn-default" %>
