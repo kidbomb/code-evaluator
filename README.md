@@ -22,8 +22,14 @@ What is complete:
  * Anyone can send a submission to a problem
  * Anyone can see the results from a submission
  * Minimal authentication
+ * Report build error
 
 What is not complete
  * Page design
  * Admin pages
+ * Compile & test button
+ * Sample test case
+ * Status in the same screen
+ * Code highlight
+ * Limit language to problem
  * Tests

@@ -1,5 +1,8 @@
 CodeEvalSc::Application.routes.draw do
 
+  resources :submission_results
+
+  root "challenges#index"
 
   devise_for :users
   resources :languages

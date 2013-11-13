@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113004003) do
+ActiveRecord::Schema.define(version: 20131113203619) do
 
   create_table "challenges", force: true do |t|
     t.string   "name"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20131113004003) do
 
   add_index "problems", ["challenge_id"], name: "index_problems_on_challenge_id"
 
+  create_table "submission_results", force: true do |t|
+    t.string   "details"
+    t.integer  "submission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "submissions", force: true do |t|
     t.text     "code"
     t.integer  "language_id"
@@ -50,12 +57,12 @@ ActiveRecord::Schema.define(version: 20131113004003) do
   create_table "test_case_results", force: true do |t|
     t.integer  "status"
     t.integer  "test_case_id"
-    t.integer  "submission_id"
+    t.integer  "submission_result_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "test_case_results", ["submission_id"], name: "index_test_case_results_on_submission_id"
+  add_index "test_case_results", ["submission_result_id"], name: "index_test_case_results_on_submission_result_id"
 
   create_table "test_cases", force: true do |t|
     t.text     "input"

@@ -12,6 +12,8 @@ class ProblemsController < ApplicationController
   # GET /problems/1.json
   def show
     @problem = Problem.find(params[:id])
+    @submission = @problem.submissions.build
+    @language = Language.all
   end
 
   # GET /problems/new

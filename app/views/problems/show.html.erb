@@ -11,7 +11,8 @@
   <%= markdown(@problem.long_description) %>
 </div>
 
-  <input type="button" value="Send submission" onClick="window.location='<%= new_problem_submission_path(@problem) %>'" class="btn btn-primary">
+<%= render 'submissions/form' %>
+
   <input type="button" value="Show submissions" onClick="window.location='<%= problem_submissions_path(@problem) %>'" class="btn btn-default">
   <input type="button" value="New test case" onClick="window.location='<%= new_problem_test_case_path(@problem) %>'" class="btn btn-default">
   <p></p>
