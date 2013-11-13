@@ -15,14 +15,14 @@
   <tr>
     <td>Name</td>
     <td>Description</td>
-    <td>Show</td>
+    <td></td>
   </tr>
 
   <% @challenge.problems.each do |problem| %>
   <tr>
     <td><%= problem.name %></td>
     <td><%= problem.short_description %></td>
-    <td><%= button_to 'Show', problem_path(problem), :method=>"get", :class=>"btn btn-default" %></td>
+    <td><%= button_to 'View problem', problem_path(problem), :method=>"get", :class=>"btn btn-default" %></td>
   </tr>
   <% end %>
   

@@ -3,13 +3,13 @@
      <tr>
         <td>Name</td>
         <td>Description</td>
-        <td>Show</td>
+        <td></td>
       </tr>
     <% @challenges.each do |challenge| %>
      <tr>
         <td><%= challenge.name %></td>
         <td><%= challenge.description %></td>
-        <td><%= button_to 'Show', challenge, :method=>"get", :class=>"btn btn-default" %></td>
+        <td><%= button_to 'View challenge', challenge, :method=>"get", :class=>"btn btn-default" %></td>
       </tr>
     <% end %>
   </div>

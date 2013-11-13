@@ -21,7 +21,9 @@ What is complete:
  * Anyone can create test case to a problem
  * Anyone can send a submission to a problem
  * Anyone can see the results from a submission
+ * Minimal authentication
 
 What is not complete
  * Page design
- * Authentication and authorization
+ * Admin pages
+ * Tests

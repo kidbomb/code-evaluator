@@ -1,6 +1,7 @@
 CodeEvalSc::Application.routes.draw do
 
 
+  devise_for :users
   resources :languages
   
   resources :challenges, shallow: true do
