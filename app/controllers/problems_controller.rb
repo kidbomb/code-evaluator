@@ -11,8 +11,9 @@ class ProblemsController < ApplicationController
   # GET /problems/1
   # GET /problems/1.json
   def show
-    @problem = Problem.find(params[:id])
+    @problem = Problem.includes(:submission_results).find(params[:id])
     @submission = @problem.submissions.build
+    @submission_results = @problem.submission_results
     @language = Language.all
   end
 

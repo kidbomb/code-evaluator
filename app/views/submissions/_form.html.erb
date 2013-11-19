@@ -11,15 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :code %><br>
-    <%= f.text_area :code, :size=>"500x20" %>
-  </div>
-   <div class="field">
-    <%= collection_select(:submission, :language_id, @language, :id, :name) %><br>
-  </div>
-
-  <div class="actions">
+<div class="panel panel-default">
+  <div>
+    <%= collection_select(:submission, :language_id, @language, :id, :name) %>
     <%= f.submit "Send code", :class=>"btn btn-primary" %>
   </div>
+  <div id="submission_status"></div>
+
+  <div>
+    <%= f.text_area :code, :size=>"500x20" %>
+  </div>
+</div>
+
 <% end %>

@@ -2,19 +2,29 @@
 
 <h2><%= @problem.name %></h2>
 
-<ul class="nav nav-tabs">
-  <li class= "active"><a href="#">Problem</a></li>
-  <li><a href="#">Submissions</a></li>
+<ul class="nav nav-tabs" id="problem_tabs">
+  <li class= "active"><a href="#problem">Problem</a></li>
+  <li><a href="#submission">Submissions</a></li>
 </ul>
 
-<div class="panel-body">
-  <%= markdown(@problem.long_description) %>
+<div class="tab-content">
+  <div class="tab-pane active" id="problem">
+    <%= markdown(@problem.long_description) %>
+    <%= render 'submissions/form' %>
+  </div>
+   <div class="tab-pane" id="submission">
+      Submissions
+      <%= render :template=> 'submission_results/index' %>
+   </div>
 </div>
 
-<%= render 'submissions/form' %>
 
+<% if current_user.admin? %>
   <input type="button" value="Show submissions" onClick="window.location='<%= problem_submissions_path(@problem) %>'" class="btn btn-default">
   <input type="button" value="New test case" onClick="window.location='<%= new_problem_test_case_path(@problem) %>'" class="btn btn-default">
   <p></p>
   <input type="button" value="Edit" onClick="window.location='<%= edit_problem_path(@problem) %>'" class="btn btn-default">
   <input type="button" value="Back" onClick="window.location='<%= challenge_problems_path(@problem) %>'" class="btn btn-default">
+
+
+<% end %>

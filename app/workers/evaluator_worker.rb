@@ -1,23 +1,21 @@
 class EvaluatorWorker
   include Sidekiq::Worker
 
-  def perform(submission_id)
-    submission = Submission.includes(:submission_result).find(submission_id)
+  def perform(submission_result_id)
+    submission_result = SubmissionResult.includes(:submission).find(submission_result_id)
 
     #create temp dir
-    tmp_dir = "/tmp/submission" + submission.id.to_s
+    tmp_dir = "/tmp/submission" + submission_result.submission_id.to_s
     system("mkdir " + tmp_dir)
     source_code_file = tmp_dir + "/code.c"
     solution_file = tmp_dir + "/solution"
  
+    submission = submission_result.submission
+
     #create tem file
     File.open(source_code_file, "w+") do |f|
       f.write(submission.code)
     end
-  
-
-    submission_result = submission.build_submission_result
-
 
     #run build if needed
     language = Language.find(submission.language_id)
@@ -60,6 +58,8 @@ class EvaluatorWorker
         test_case_result.test_case_id = test_case.id
         if test_case_result.save
           puts "saved test result #{test_case_result.id}"
+          submission_result.completed = true
+          submission_result.save
         else
           puts "save test result failed"
         end
@@ -68,6 +68,7 @@ class EvaluatorWorker
     else
       #report
       submission_result.details = "Build failed: " + build_output
+       submission_result.completed = true
       submission_result.save
       puts "build failed for submission #{submission_id}"
     end

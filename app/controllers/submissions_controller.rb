@@ -32,9 +32,12 @@ class SubmissionsController < ApplicationController
     @submission = problem.submissions.create(submission_params)
     respond_to do |format|
       if @submission.save
-        EvaluatorWorker.perform_async(@submission.id)
-        format.html { redirect_to @submission, notice: 'Problem solution try was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @submission }
+        @submission_result = @submission.build_submission_result
+        @submission_result.details = "Creating..." 
+        @submission_result.save
+        EvaluatorWorker.perform_async(@submission_result.id)
+        format.html { redirect_to @submission_result, notice: 'Problem solution try was successfully created.' }
+        format.json { render :template => "submission_results/show", status: :created, location: @submission_result }
       else
         format.html { render action: 'new' }
         format.json { render json: @submission.errors, status: :unprocessable_entity }

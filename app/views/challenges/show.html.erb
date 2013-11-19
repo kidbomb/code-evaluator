@@ -28,6 +28,10 @@
   
 </table>
 
+<% if current_user.admin? %>
+
 <%= button_to 'New problem', new_challenge_problem_path(@challenge), :method=>"get", :class=>"btn btn-default"  %> 
 <%= button_to 'Edit', edit_challenge_path(@challenge), :method=>"get", :class=>"btn btn-default"  %> 
 <%= button_to 'Back', challenges_path, :method=>"get", :class=>"btn btn-default"  %>
+
+<% end %>

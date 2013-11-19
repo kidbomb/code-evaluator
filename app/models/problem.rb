@@ -5,4 +5,5 @@ class Problem < ActiveRecord::Base
   belongs_to :challenge
   has_many :test_cases
   has_many :submissions
+  has_many :submission_results, through: :submissions
 end

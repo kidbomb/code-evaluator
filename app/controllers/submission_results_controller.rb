@@ -10,6 +10,7 @@ class SubmissionResultsController < ApplicationController
   # GET /submission_results/1
   # GET /submission_results/1.json
   def show
+    @submission_result = SubmissionResult.includes(:test_case_results).find(params[:id])
   end
 
   # GET /submission_results/new

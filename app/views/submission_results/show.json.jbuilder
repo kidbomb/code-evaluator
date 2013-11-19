@@ -1,1 +1,1 @@
-json.extract! @submission_result, :created_at, :updated_at
+json.extract! @submission_result, :id, :details, :completed

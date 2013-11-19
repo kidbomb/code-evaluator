@@ -33,3 +33,4 @@ What is not complete
  * Code highlight
  * Limit language to problem
  * Tests
+ * Create pids dir for sidekiq

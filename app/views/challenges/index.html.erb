@@ -16,4 +16,8 @@
   
 </table>
 
+<% if current_user.admin? %>
+
 <%= button_to 'New Challenge', new_challenge_path, :method=>"get",:class=>"btn btn-default" %>
+
+<% end %>

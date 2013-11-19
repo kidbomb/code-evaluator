@@ -1,6 +1,5 @@
-<h1>Listing submission_results</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th></th>
@@ -12,9 +11,9 @@
   <tbody>
     <% @submission_results.each do |submission_result| %>
       <tr>
+        <td><%= submission_result.details %></td>
         <td><%= link_to 'Show', submission_result %></td>
         <td><%= link_to 'Edit', edit_submission_result_path(submission_result) %></td>
-        <td><%= link_to 'Destroy', submission_result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
