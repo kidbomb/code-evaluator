@@ -1,7 +1,11 @@
 class EvaluatorWorker
   include Sidekiq::Worker
 
+  sidekiq_options :retry => false
+
   def perform(submission_result_id)
+
+    puts "Starting worker with id = " + submission_result_id.to_s
     submission_result = SubmissionResult.includes(:submission).find(submission_result_id)
 
     #create temp dir
@@ -32,6 +36,8 @@ class EvaluatorWorker
     if build_ok
       #report
       submission_result.details = "Build OK"
+      submission_result.status = SubmissionResultStatus::BUILD_OK
+      puts "status = " + submission_result.status.to_s
       submission_result.save
 
       test_cases = TestCase.find_all_by_problem_id(submission.problem_id)
@@ -68,7 +74,8 @@ class EvaluatorWorker
     else
       #report
       submission_result.details = "Build failed: " + build_output
-       submission_result.completed = true
+      submission_result.completed = true
+      submission_result.status = SubmissionResultStatus::BUILD_FAILED
       submission_result.save
       puts "build failed for submission #{submission_id}"
     end

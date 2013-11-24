@@ -22,7 +22,7 @@
   <tr>
     <td><%= problem.name %></td>
     <td><%= problem.short_description %></td>
-    <td><%= button_to 'View problem', problem_path(problem), :method=>"get", :class=>"btn btn-default" %></td>
+    <td><%= link_to 'View problem', problem_path(problem), :method=>"get", :class=>"btn btn-default" %></td>
   </tr>
   <% end %>
   
@@ -30,8 +30,8 @@
 
 <% if current_user.admin? %>
 
-<%= button_to 'New problem', new_challenge_problem_path(@challenge), :method=>"get", :class=>"btn btn-default"  %> 
-<%= button_to 'Edit', edit_challenge_path(@challenge), :method=>"get", :class=>"btn btn-default"  %> 
-<%= button_to 'Back', challenges_path, :method=>"get", :class=>"btn btn-default"  %>
+<%= link_to 'New problem', new_challenge_problem_path(@challenge), :class=>"btn btn-default"  %> 
+<%= link_to 'Edit', edit_challenge_path(@challenge), :class=>"btn btn-default"  %> 
+<%= link_to 'Back', challenges_path, :class=>"btn btn-default"  %>
 
 <% end %>

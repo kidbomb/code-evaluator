@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113203619) do
+ActiveRecord::Schema.define(version: 20131123185957) do
 
   create_table "challenges", force: true do |t|
     t.string   "name"
@@ -39,9 +39,15 @@ ActiveRecord::Schema.define(version: 20131113203619) do
 
   add_index "problems", ["challenge_id"], name: "index_problems_on_challenge_id"
 
+  create_table "submission_result_statuses", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "submission_results", force: true do |t|
     t.string   "details"
     t.boolean  "completed",     default: false
+    t.integer  "status"
     t.integer  "submission_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,0 +1,2 @@
+rake db:migrate
+./start_background_jobs

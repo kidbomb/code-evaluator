@@ -13,7 +13,7 @@ class ProblemsController < ApplicationController
   def show
     @problem = Problem.includes(:submission_results).find(params[:id])
     @submission = @problem.submissions.build
-    @submission_results = @problem.submission_results
+    @submission_results = @problem.submission_results.order(created_at: :desc).first(10)
     @language = Language.all
   end
 

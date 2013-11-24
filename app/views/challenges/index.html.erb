@@ -9,7 +9,7 @@
      <tr>
         <td><%= challenge.name %></td>
         <td><%= challenge.description %></td>
-        <td><%= button_to 'View challenge', challenge, :method=>"get", :class=>"btn btn-default" %></td>
+        <td><%= link_to 'View challenge', challenge, :class=>"btn btn-default" %></td>
       </tr>
     <% end %>
   </div>
@@ -18,6 +18,6 @@
 
 <% if current_user.admin? %>
 
-<%= button_to 'New Challenge', new_challenge_path, :method=>"get",:class=>"btn btn-default" %>
+<%= link_to 'New Challenge', new_challenge_path,:class=>"btn btn-default" %>
 
 <% end %>

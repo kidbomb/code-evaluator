@@ -16,7 +16,10 @@
     <%= collection_select(:submission, :language_id, @language, :id, :name) %>
     <%= f.submit "Send code", :class=>"btn btn-primary" %>
   </div>
-  <div id="submission_status"></div>
+  <div id="submission_status">
+    <span id="submission_status_text"></span>
+    <img id="submission_status_image"/>
+  </div>
 
   <div>
     <%= f.text_area :code, :size=>"500x20" %>

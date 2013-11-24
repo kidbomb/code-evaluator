@@ -13,18 +13,14 @@
     <%= render 'submissions/form' %>
   </div>
    <div class="tab-pane" id="submission">
-      Submissions
       <%= render :template=> 'submission_results/index' %>
    </div>
 </div>
 
 
 <% if current_user.admin? %>
-  <input type="button" value="Show submissions" onClick="window.location='<%= problem_submissions_path(@problem) %>'" class="btn btn-default">
-  <input type="button" value="New test case" onClick="window.location='<%= new_problem_test_case_path(@problem) %>'" class="btn btn-default">
-  <p></p>
-  <input type="button" value="Edit" onClick="window.location='<%= edit_problem_path(@problem) %>'" class="btn btn-default">
-  <input type="button" value="Back" onClick="window.location='<%= challenge_problems_path(@problem) %>'" class="btn btn-default">
-
-
+  <%= link_to "Show submissions", problem_submissions_path(@problem), :class=>"btn btn-default" %>
+  <%= link_to "New test case", new_problem_test_case_path(@problem), :class=>"btn btn-default" %>
+  <%= link_to "Edit", edit_problem_path(@problem), :class=>"btn btn-default" %>
+  <%= link_to "Back", challenge_problems_path(@problem), :class=>"btn btn-default" %>
 <% end %>

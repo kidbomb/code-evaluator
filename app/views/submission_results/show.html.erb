@@ -1,4 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_submission_result_path(@submission_result) %> |
-<%= link_to 'Back', submission_results_path %>
+<h3> Submission #<%= @submission_result.submission_id %></h3>
+
+<p>Submission details: <%= @submission_result.details %></p>
+
+<p><b>Test case results</b></p>
+<table class="table">
+  <tr>
+    <td>Test id</td>
+    <td>Result</td>
+  </tr>
+<% @submission_result.test_case_results.each do |test_case_result| %>
+  <tr>
+     <td><%= test_case_result.test_case_id %></td>
+     <td><span class="label label-<%=format_status_bootstrap(test_case_result.status)%>"> <%= format_status(test_case_result.status) %></span> </td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'Back to problem', problem_path(@submission_result.problem), :method=> "get", :class=>"btn btn-default" %>
+

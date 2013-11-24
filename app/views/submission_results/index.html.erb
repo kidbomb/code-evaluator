@@ -11,14 +11,12 @@
   <tbody>
     <% @submission_results.each do |submission_result| %>
       <tr>
-        <td><%= submission_result.details %></td>
+        <td>Submission <%= submission_result.id %></td>
+        <td><%= submission_result_status_format(submission_result.status) %></td>
         <td><%= link_to 'Show', submission_result %></td>
-        <td><%= link_to 'Edit', edit_submission_result_path(submission_result) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Submission result', new_submission_result_path %>

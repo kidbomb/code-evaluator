@@ -23,14 +23,15 @@ What is complete:
  * Anyone can see the results from a submission
  * Minimal authentication
  * Report build error
+ * Status in the same screen
 
 What is not complete
  * Page design
  * Admin pages
  * Compile & test button
  * Sample test case
- * Status in the same screen
  * Code highlight
  * Limit language to problem
  * Tests
  * Create pids dir for sidekiq
+ * cleanup resources
